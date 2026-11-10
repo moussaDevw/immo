@@ -126,6 +126,7 @@ export type ActiveView =
   | 'catalog'
   | 'property-detail'
   | 'about'
+  | 'favorites'
   | 'admin-dashboard'
   | 'admin-properties'
   | 'admin-requests'

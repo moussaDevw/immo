@@ -30,6 +30,7 @@ export interface AppContextType {
   favorites: string[]
   toggleFavorite: (propertyId: string) => void
   isFavorite: (propertyId: string) => boolean
+  clearFavorites: () => void
 
   // Admin authentication
   isAdminAuthenticated: boolean

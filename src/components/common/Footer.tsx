@@ -123,6 +123,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdvisorModal }) => {
               </li>
               <li>
                 <button
+                  onClick={() => navigateTo('favorites')}
+                  className="hover:text-white hover:translate-x-1 transition-all text-left flex items-center gap-1.5 py-0.5 cursor-pointer"
+                >
+                  <ArrowRight className="w-3 h-3 text-slate-600" />
+                  Mes Biens Favoris
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => navigateTo('about')}
                   className="hover:text-white hover:translate-x-1 transition-all text-left flex items-center gap-1.5 py-0.5 cursor-pointer"
                 >

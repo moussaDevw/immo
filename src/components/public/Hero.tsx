@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
                   setFilters((prev) => ({ ...prev, neighborhood: n }))
                   navigateTo('catalog')
                 }}
-                className="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-[#19B8CD]/20 hover:text-[#19B8CD] border border-slate-700 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#19B8CD]"
+                className="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-[#19B8CD]/20 text-slate-200 hover:text-[#19B8CD] border border-slate-700 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#19B8CD]"
               >
                 {n}
               </button>
