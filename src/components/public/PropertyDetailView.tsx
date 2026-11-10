@@ -1181,9 +1181,9 @@ export const PropertyDetailView: React.FC<PropertyDetailViewProps> = ({
 
               <div className="space-y-3 pt-1">
                 <Button
-                  variant="primary"
+                  variant="cyan"
                   size="lg"
-                  className="w-full text-slate-950 font-extrabold shadow-lg hover:shadow-cyan-500/20"
+                  className="w-full font-extrabold shadow-lg hover:shadow-cyan-500/20"
                   onClick={() => onBookVisit(property)}
                   leftIcon={<CalendarCheck className="w-4 h-4 text-slate-950" />}
                 >
@@ -1192,9 +1192,9 @@ export const PropertyDetailView: React.FC<PropertyDetailViewProps> = ({
 
                 {onOpenAdvisorModal && (
                   <Button
-                    variant="outline"
+                    variant="outline-dark"
                     size="md"
-                    className="w-full text-white border-slate-600 hover:bg-white/10"
+                    className="w-full"
                     onClick={onOpenAdvisorModal}
                     leftIcon={<HelpCircle className="w-4 h-4 text-[#19B8CD]" />}
                   >
@@ -1284,9 +1284,9 @@ export const PropertyDetailView: React.FC<PropertyDetailViewProps> = ({
             </p>
           </div>
           <Button
-            variant="primary"
+            variant="cyan"
             size="lg"
-            className="text-slate-950 font-extrabold shrink-0 shadow-lg hover:shadow-cyan-500/20"
+            className="font-extrabold shrink-0 shadow-lg hover:shadow-cyan-500/20"
             onClick={() => onBookVisit(property)}
             leftIcon={<CalendarCheck className="w-4 h-4 text-slate-950" />}
           >

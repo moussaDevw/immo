@@ -51,19 +51,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisorModal }) => {
     setMobileMenuOpen(false)
   }
 
-  const handleNavToCatalog = () => {
-    navigateTo('catalog')
+  const handleNavToAbout = () => {
+    navigateTo('about')
     setMobileMenuOpen(false)
   }
 
-  const handleNavToAbout = () => {
-    navigateTo('about')
+  const handleNavToFavorites = () => {
+    navigateTo('favorites')
     setMobileMenuOpen(false)
   }
 
   const isSaleActive = activeView === 'catalog' && filters.transaction === 'sale'
   const isRentActive = activeView === 'catalog' && filters.transaction === 'rent'
   const isAboutActive = activeView === 'about'
+  const isFavoritesActive = activeView === 'favorites'
   const isHomeActive = activeView === 'home'
 
   return (
@@ -139,15 +140,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisorModal }) => {
 
             {/* Accès rapide favoris */}
             <button
-              onClick={handleNavToCatalog}
+              onClick={handleNavToFavorites}
               title={`${favorites.length} bien(s) en favoris`}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-[#0B1730] hover:bg-slate-50 transition-colors flex items-center gap-1.5 cursor-pointer"
+              aria-label={`Accéder à mes favoris (${favorites.length} bien(s) enregistré(s))`}
+              className={`px-3 py-2 rounded-xl text-sm font-medium transition-colors flex items-center gap-1.5 cursor-pointer ${
+                isFavoritesActive
+                  ? 'bg-rose-50 text-rose-700 font-bold border border-rose-200'
+                  : 'text-slate-600 hover:text-[#0B1730] hover:bg-slate-50'
+              }`}
             >
               <Heart
-                className={`w-4 h-4 transition-colors ${favorites.length > 0
+                className={`w-4 h-4 transition-colors ${
+                  favorites.length > 0
                     ? 'fill-rose-500 text-rose-500'
                     : 'text-slate-400'
-                  }`}
+                }`}
               />
               <span className="hidden lg:inline text-xs font-semibold">Favoris</span>
               {favorites.length > 0 && (
@@ -191,7 +198,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisorModal }) => {
           </div>
 
           {/* Mobile hamburger button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1.5">
+            {/* Accès direct favoris mobile */}
+            <button
+              onClick={handleNavToFavorites}
+              className={`relative p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#19B8CD] cursor-pointer ${
+                isFavoritesActive ? 'bg-rose-50 text-rose-600' : ''
+              }`}
+              aria-label={`Mes favoris (${favorites.length})`}
+            >
+              <Heart
+                className={`w-5 h-5 ${
+                  favorites.length > 0
+                    ? 'fill-rose-500 text-rose-500'
+                    : 'text-slate-500'
+                }`}
+              />
+              {favorites.length > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center shadow-xs">
+                  {favorites.length}
+                </span>
+              )}
+            </button>
+
             <button
               onClick={() => {
                 if (isAdminAuthenticated) {
@@ -264,6 +293,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisorModal }) => {
               }`}
           >
             <span>À propos de la plateforme</span>
+          </button>
+
+          <button
+            onClick={handleNavToFavorites}
+            className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer flex items-center justify-between ${
+              isFavoritesActive ? 'bg-rose-50 text-rose-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Heart
+                className={`w-4 h-4 ${
+                  favorites.length > 0 ? 'fill-rose-500 text-rose-500' : 'text-slate-400'
+                }`}
+              />
+              <span>Mes Favoris</span>
+            </div>
+            {favorites.length > 0 && (
+              <span className="px-2 py-0.5 rounded-full bg-rose-500 text-white text-xs font-bold">
+                {favorites.length}
+              </span>
+            )}
           </button>
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">

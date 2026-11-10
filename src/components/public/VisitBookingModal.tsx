@@ -445,9 +445,9 @@ export const VisitBookingModal: React.FC<VisitBookingModalProps> = ({
                 Annuler
               </Button>
               <Button
-                variant="primary"
+                variant="cyan"
                 type="submit"
-                className="w-2/3 text-slate-950 font-extrabold"
+                className="w-2/3 font-extrabold"
                 isLoading={isSubmitting}
                 disabled={isSubmitting}
                 leftIcon={<CalendarCheck className="w-4 h-4 text-slate-950" />}

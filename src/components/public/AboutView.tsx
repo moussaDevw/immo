@@ -149,9 +149,8 @@ export const AboutView: React.FC<AboutViewProps> = ({ onOpenAdvisorModal }) => {
                 Accéder au cockpit gestionnaire
               </Button>
               <Button
-                variant="outline"
+                variant="outline-dark"
                 size="md"
-                className="text-white border-slate-700 bg-slate-800 hover:bg-slate-700"
                 onClick={onOpenAdvisorModal}
               >
                 Programmer une présentation

@@ -11,6 +11,7 @@ import { HomeView } from './components/public/HomeView'
 import { CatalogView } from './components/public/CatalogView'
 import { PropertyDetailView } from './components/public/PropertyDetailView'
 import { AboutView } from './components/public/AboutView'
+import { FavoritesView } from './components/public/FavoritesView'
 import { VisitBookingModal } from './components/public/VisitBookingModal'
 import { AdminLayout } from './components/admin/AdminLayout'
 import { AdminDashboard } from './components/admin/AdminDashboard'
@@ -53,6 +54,8 @@ const AppContent: React.FC = () => {
       title = 'Catalogue Immobilier Dakar | MusaTech Real Estate'
     } else if (activeView === 'about') {
       title = 'À Propos & Démonstration Commerciale | MusaTech Real Estate'
+    } else if (activeView === 'favorites') {
+      title = 'Mes Favoris | MusaTech Real Estate Dakar'
     } else if (activeView === 'property-detail' && selectedPropertyId) {
       const prop = StorageService.getPropertyById(selectedPropertyId)
       if (prop) {
@@ -214,6 +217,13 @@ const AppContent: React.FC = () => {
 
             {activeView === 'about' && (
               <AboutView onOpenAdvisorModal={handleOpenAdvisorModal} />
+            )}
+
+            {activeView === 'favorites' && (
+              <FavoritesView
+                onBookVisit={handleOpenBooking}
+                onOpenAdvisorModal={handleOpenAdvisorModal}
+              />
             )}
           </main>
 

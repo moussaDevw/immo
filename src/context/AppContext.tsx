@@ -68,6 +68,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
       } else if (hash === 'catalogue' || hash === 'biens') {
         setActiveView('catalog')
         setSelectedPropertyId(null)
+      } else if (hash === 'favoris') {
+        setActiveView('favorites')
+        setSelectedPropertyId(null)
+      } else if (hash === 'a-propos') {
+        setActiveView('about')
+        setSelectedPropertyId(null)
       } else if (hash.startsWith('bien/')) {
         const id = hash.replace('bien/', '')
         setActiveView('property-detail')
@@ -106,6 +112,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
           break
         case 'catalog':
           newHash = 'catalogue'
+          break
+        case 'favorites':
+          newHash = 'favoris'
+          break
+        case 'about':
+          newHash = 'a-propos'
           break
         case 'property-detail':
           newHash = `bien/${propertyId || selectedPropertyId || ''}`
@@ -156,6 +168,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     const id = `toast-${Date.now()}`
     setToast({ ...toastData, id })
   }, [])
+
+  const clearFavorites = useCallback(() => {
+    setFavorites([])
+    StorageService.saveFavorites([])
+    showToast({
+      type: 'info',
+      title: 'Favoris réinitialisés',
+      message: 'Tous les biens ont été retirés de votre carnet de favoris.',
+    })
+  }, [showToast])
 
   const hideToast = useCallback(() => {
     setToast(null)
@@ -367,6 +389,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
         favorites,
         toggleFavorite,
         isFavorite,
+        clearFavorites,
         isAdminAuthenticated,
         isAuthModalOpen,
         adminUser,

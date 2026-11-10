@@ -49,9 +49,8 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({
               </Button>
 
               <Button
-                variant="outline"
+                variant="outline-dark"
                 size="lg"
-                className="text-white border-slate-700 bg-slate-900/80 hover:bg-slate-800"
                 onClick={onOpenAdvisorModal}
               >
                 Être recontacté par un conseiller
