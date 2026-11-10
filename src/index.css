@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  /* Couleurs de marque */
+  --color-brand-navy: #0B1730;
+  --color-brand-navy-light: #172A46;
+  --color-brand-navy-dark: #070e20;
+  --color-brand-secondary: #172A46;
+  --color-brand-cyan: #19B8CD;
+  --color-brand-cyan-hover: #1499ab;
+  --color-brand-cyan-light: #e8f9fb;
+  --color-brand-cyan-dark: #0f8291;
+
+  /* Surfaces */
+  --color-surface-canvas: #f8fafc;
+  --color-surface-card: #ffffff;
+  --color-surface-subtle: #f1f5f9;
+  --color-surface-dark: #0B1730;
+  --color-surface-dark-card: #172A46;
+
+  /* Typographies */
+  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Focus & anneau d'accessibilité */
+  --color-focus-ring: #19B8CD;
+}
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Manrope', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Accessibilité & Focus Clavier */
+:focus-visible {
+  outline: 2px solid #19B8CD;
+  outline-offset: 2px;
+}
+
+/* Utilitaires de défilement doux et scrollbar */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Styles d'impression pour fiche commerciale */
+@media print {
+  body {
+    background-color: #ffffff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

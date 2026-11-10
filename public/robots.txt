@@ -1,0 +1,14 @@
+# Robots.txt — MusaTech Real Estate (Démonstration Commerciale Sénégal)
+# Interdiction stricte d'indexation pour l'espace d'administration et les données privées
+
+User-agent: *
+Disallow: /admin/
+Disallow: /*#admin*
+Disallow: /api/
+Allow: /
+Allow: /*#catalogue*
+Allow: /*#bien*
+Allow: /*#a-propos*
+
+Sitemap: https://musatech-immo.demo.sn/sitemap.xml
+
